@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    ports:
+      - '5050:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Fate1234
+      POSTGRES_DB: dummy_db
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      
+  spring:
+    build: .
+    container_name: spring
+    restart: always
+    ports:
+      - '8080:8080'
+    environment:
+      db-url: url
+      db-username: name 
+      db-password: password 
+    depends_on:
+      - db
+    
+# command to run docker compose
+# docker compose -f .\docker-compose.yaml up -d
