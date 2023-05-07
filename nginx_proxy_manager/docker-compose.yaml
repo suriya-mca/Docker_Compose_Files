@@ -14,8 +14,8 @@ services:
       # Mysql/Maria connection parameters:
       DB_MYSQL_HOST: "db"
       DB_MYSQL_PORT: 3306
-      DB_MYSQL_USER: "npm"
-      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_USER: "npmadmin"
+      DB_MYSQL_PASSWORD: "password"
       DB_MYSQL_NAME: "npm"
       # Uncomment this if IPv6 is not enabled on your host
       # DISABLE_IPV6: 'true'
@@ -31,7 +31,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 'npm'
       MYSQL_DATABASE: 'npm'
-      MYSQL_USER: 'npm'
-      MYSQL_PASSWORD: 'npm'
+      MYSQL_USER: 'npmadmin'
+      MYSQL_PASSWORD: 'password'
     volumes:
       - ./mysql:/var/lib/mysql

@@ -1,0 +1,3 @@
+/nginx_proxy_manager/data/
+/nginx_proxy_manager/letsencrypt/
+/nginx_proxy_manager/mysql/
