@@ -1,0 +1,13 @@
+version: '3'
+services:
+  dbgate:
+    image: dbgate/dbgate
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - dbgate-data:/root/.dbgate
+
+volumes:
+  dbgate-data:
+    driver: local
