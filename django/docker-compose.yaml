@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - nginx
+      - postgres-master
+      - postgres-slave
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./static:/app/static
+    depends_on:
+      - web
+
+  postgres-master:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: my_database
+      POSTGRES_USER: my_user
+      POSTGRES_PASSWORD: my_password
+
+  postgres-slave:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: my_database
+      POSTGRES_USER: my_user
+      POSTGRES_PASSWORD: my_password
+      POSTGRES_MASTER_SERVICE: "postgres-master"
+      POSTGRES_REPLICATION_MODE: "slave"
+      POSTGRES_REPLICATION_USER: "replicator"
+      POSTGRES_REPLICATION_PASSWORD: "replicator_password"
+    volumes:
+      - ./pg_slave_conf:/docker-entrypoint-initdb.d
+
+  pgpool:
+    image: pgpool/pgpool:latest
+    ports:
+      - "5432:5432"
+      - "9999:9999"
+    depends_on:
+      - postgres-master
+      - postgres-slave
+    environment:
+      PGPOOL_BACKEND_NODES: "postgres-master:5432,postgres-slave:5432"
+      PGPOOL_SR_CHECK_PERIOD: 5
+      PGPOOL_HEALTH_CHECK_PERIOD: 5
+      PGPOOL_HEALTH_CHECK_USER: my_user
+      PGPOOL_HEALTH_CHECK_PASSWORD: my_password
+      PGPOOL_ENABLE_LOAD_BALANCING: 1
+      PGPOOL_MAX_POOL: 4
+      PGPOOL_SR_CHECK_USER: my_user
+      PGPOOL_SR_CHECK_PASSWORD: my_password
+      PGPOOL_FOLLOW_MASTER_COMMAND: "/path/to/your/promote_script.sh $PGPOOL_NODE_HOST $PGPOOL_NODE_PORT $PGPOOL_NODE_USER $PGDATA"
