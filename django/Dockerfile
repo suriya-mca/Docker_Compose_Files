@@ -15,13 +15,13 @@ COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN apk update && \
-	pip install --upgrade pip && \
-  pip install --no-cache-dir --upgrade -r requirements.txt && \
-  python manage.py collectstatic --noinput && \
-  groupadd -r user && useradd -r -g user user
-
-# Provide All Permissions to the "app" Directory
-chown -R user:user /app && chmod -R g+rwx /app
+    pip install --upgrade pip && \
+    pip install --no-cache-dir --upgrade -r requirements.txt && \
+    python manage.py collectstatic --noinput && \
+    groupadd -r user && useradd -r -g user user && \
+    chown -R user:user /app && chmod -R g+rwx /app && \
+    apk del build-base libffi-dev && \
+    rm -rf /var/cache/apk/*
 
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
