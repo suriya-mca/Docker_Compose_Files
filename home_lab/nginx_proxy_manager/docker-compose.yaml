@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   app:
     image: 'jc21/nginx-proxy-manager:latest'

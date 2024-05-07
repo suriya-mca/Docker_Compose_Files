@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   cache:
     image: redis:6.2-alpine
@@ -9,8 +10,8 @@ services:
     environment:
       REDIS_HOST: cache
       REDIS_PORT: 6379
-      REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
-    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      REDIS_PASSWORD: xxxx
+    command: redis-server --save 20 1 --loglevel warning --requirepass xxxx
     volumes: 
       - cache:/data
 

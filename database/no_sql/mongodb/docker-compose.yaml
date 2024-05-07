@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   mongo:
     image: mongo:4.2.24-bionic
