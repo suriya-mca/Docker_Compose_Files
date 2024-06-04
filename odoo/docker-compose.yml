@@ -9,11 +9,17 @@ services:
       - "8069:8069"
     environment:
     - HOST=mydb
+    - PORT=5432
     - USER=odoo
     - PASSWORD=myodoo
   mydb:
     image: postgres:15
+    ports:
+      - "5432:5432"
     environment:
       - POSTGRES_DB=odoo_db
       - POSTGRES_PASSWORD=myodoo
       - POSTGRES_USER=odoo
+
+
+# go to /etc/odoo/odoo.conf and enable "db_name = postgresql"
