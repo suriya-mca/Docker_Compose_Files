@@ -1,3 +1,4 @@
 /home_lab/nginx_proxy_manager/data/
 /home_lab/nginx_proxy_manager/letsencrypt/
 .idx
+.vscode
