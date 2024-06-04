@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  db:
+    image: cockroachdb/cockroach:latest
+    container_name: cockroachdb
+    restart: always
+    command: start-single-node --insecure
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    volumes:
+      - cockroach-data:/cockroach/cockroach-data
+    environment:
+      - COCKROACH_CHANNEL=official-docker-v21.2.9
+
+volumes:
+  cockroach-data:

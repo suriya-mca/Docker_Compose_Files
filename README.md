@@ -23,8 +23,9 @@ This command will start the containers defined in the Docker Compose file.
 The following Docker Compose files are available in this repository:
 
 * **SQL Database:**
-    * MySQL
     * PostgreSQL
+    * CockroachDB
+    * MySQL
     * Mariadb
 * **NoSQL Database:**
     * Redis
