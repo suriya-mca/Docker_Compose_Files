@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: external_mysql_host
+      PMA_PORT: external_mysql_port
+      PMA_USER: external_mysql_user
+      PMA_PASSWORD: external_mysql_password
+    ports:
+      - "8080:80"

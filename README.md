@@ -31,8 +31,11 @@ The following Docker Compose files are available in this repository:
     * MongoDB
     * KeyDB
 * **DB Client:**
-    * dbgate
-    * pgadmin
+    * Dbeaver
+    * Dbgate
+    * Pgadmin4
+    * Phpmyadmin
+    * Beekeeper Studio
 * **Backend Framework:**
     * FastAPI
     * Django

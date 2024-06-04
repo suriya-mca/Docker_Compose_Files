@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  beekeeper:
+    build: .
+    container_name: beekeeper
+    restart: always
+    ports:
+      - "5900:5900"
+    volumes:
+      - beekeeper-data:/root/.config/Beekeeper Studio
+    environment:
+      - VNC_SERVER_PASSWORD=password  # You can set a password for VNC server
+
+volumes:
+  beekeeper-data:
