@@ -1,30 +1,17 @@
-# Use an official Python runtime as a parent image
 FROM python:3.12-alpine
 
-# Set environment variables for Python
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PIP_DISABLE_PIP_VERSION_CHECK 1
 ENV PIP_NO_CACHE_DIR 1
 
-# Set the working directory to /app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
 COPY . /app
+COPY ./script/gunicorn/gunicorn.conf.py /etc/gunicorn/gunicorn.conf.py
 
-# Install any needed packages specified in requirements.txt
-RUN apk update && \
+RUN chmod +x /app/script/start.sh && \
     pip install --upgrade pip && \
-    pip install --no-cache-dir --upgrade -r requirements.txt && \
-    python manage.py collectstatic --noinput && \
-    groupadd -r user && useradd -r -g user user && \
-    chown -R user:user /app && chmod -R g+rwx /app && \
-    apk del build-base libffi-dev && \
-    rm -rf /var/cache/apk/*
+    pip install --no-cache-dir --upgrade -r requirements.txt
 
-# Make port 8000 available to the world outside this container
-EXPOSE 8000
-
-# Run gunicorn with uvicorn workers
-CMD ["gunicorn", "myproject.asgi:application", "-c", "gunicorn.conf.py"]
+ENTRYPOINT ["sh", "-c", "./script/start.sh"]

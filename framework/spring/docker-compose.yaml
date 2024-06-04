@@ -1,30 +1,22 @@
-version: '3.8'
+version: '3.9'
 
 services:
   db:
     image: postgres:latest
     container_name: postgres
+    env_file: .env
     restart: always
     ports:
       - '5432:5432'
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: *******
-      POSTGRES_DB: dummy_db
-      PGDATA: /var/lib/postgresql/data
     volumes:
       - postgres:/var/lib/postgresql/data
       
   spring:
     build: .
     container_name: spring
-    restart: always
+    env_file: .env
     ports:
       - '8080:8080'
-    environment:
-      db-url: url
-      db-username: name 
-      db-password: password 
     depends_on:
       - db
     
