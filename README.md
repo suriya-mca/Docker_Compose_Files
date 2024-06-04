@@ -1,8 +1,6 @@
 
 # Docker Compose Files for Open-Source Software and Frameworks
 
----
-
 This repository contains a collection of Docker Compose files for various open-source and popular software and frameworks
 . Each Docker Compose file is designed to set up a specific software or framework in a containerized environment.
 
