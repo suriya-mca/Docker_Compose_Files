@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  db:
+    image: timescale/timescaledb:latest-pg13
+    container_name: timescaledb
+    environment:
+      POSTGRES_DB: dummy_db
+      POSTGRES_USER: timescale
+      POSTGRES_PASSWORD: timescale-password
+    ports:
+      - "5432:5432"
+    volumes:
+      - timescale-data:/var/lib/postgresql/data
+
+volumes:
+  timescale-data:

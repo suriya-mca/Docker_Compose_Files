@@ -27,10 +27,16 @@ The following Docker Compose files are available in this repository:
     * CockroachDB
     * MySQL
     * Mariadb
+    * TimescaleDB
 * **NoSQL Database:**
     * Redis
     * MongoDB
     * KeyDB
+    * Cassandra
+    * CouchDB
+    * Couchbase
+    * Neo4j
+    * Memcached
 * **DB Client:**
     * Dbeaver
     * Dbgate

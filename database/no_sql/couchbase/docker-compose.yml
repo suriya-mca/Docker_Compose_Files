@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  db:
+    image: couchbase:latest
+    container_name: couchbase
+    restart: always
+    ports:
+      - "8091-8094:8091-8094"
+      - "11210-11211:11210-11211"
+    environment:
+      - COUCHBASE_USER=couchbase
+      - COUCHBASE_PASSWORD=couchbase-password
+    volumes:
+      - couchbase-data:/opt/couchbase/var
+
+volumes:
+  couchbase-data:

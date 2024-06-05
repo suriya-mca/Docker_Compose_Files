@@ -7,10 +7,6 @@ services:
     restart: always
     ports:
       - '6379:6379'
-    environment:
-      REDIS_HOST: cache
-      REDIS_PORT: 6379
-      REDIS_PASSWORD: xxxx
     volumes: 
       - cache:/data
 

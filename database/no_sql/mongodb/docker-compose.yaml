@@ -4,12 +4,12 @@ services:
   mongo:
     image: mongo:4.2.24-bionic
     container_name: mongo
-    restart: unless-stopped
+    restart: always
     ports:
       - '27017:27017'
     environment:
       MONGO_INITDB_DATABASE: test_db
       MONGO_INITDB_ROOT_USERNAME: mongodb
-      MONGO_INITDB_ROOT_PASSWORD: Fate1234
+      MONGO_INITDB_ROOT_PASSWORD: mongo-password
     volumes:
       - /mongo:/data/db
