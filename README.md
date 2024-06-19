@@ -51,6 +51,8 @@ The following Docker Compose files are available in this repository:
     * Odoo
 * **Docker Client:**
     * Dokku
+* **Backend as a Service(BaaS):**
+    * Pocketbase
 
 ## Contributing
 
