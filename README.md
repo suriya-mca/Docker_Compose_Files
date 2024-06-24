@@ -49,6 +49,7 @@ The following Docker Compose files are available in this repository:
     * Spring Boot
 * **CRM/ERP:**
     * Odoo
+    * ERPNext
 * **Docker Client:**
     * Dokku
 * **Backend as a Service(BaaS):**
