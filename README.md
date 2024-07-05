@@ -54,6 +54,8 @@ The following Docker Compose files are available in this repository:
     * Dokku
 * **Backend as a Service(BaaS):**
     * Pocketbase
+* **API Platform:**
+    * Hoppscotch
 
 ## Contributing
 

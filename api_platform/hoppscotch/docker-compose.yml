@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  hoppscotch:
+    image: hoppscotch/hoppscotch:latest
+    container_name: hoppscotch
+    ports:
+      - "3000:3000"
+    restart: always
