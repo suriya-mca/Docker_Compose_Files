@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  appwrite:
+    image: appwrite/appwrite:1.5.7
+    container_name: appwrite
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./appwrite:/usr/src/code/appwrite:rw
+    entrypoint: ["install"]
+    tty: true
+    stdin_open: true
