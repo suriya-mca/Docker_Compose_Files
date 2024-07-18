@@ -26,6 +26,7 @@ The following Docker Compose files are available in this repository:
     * PostgreSQL
     * CockroachDB
     * MySQL
+    * MSSQL
     * Mariadb
     * TimescaleDB
 * **NoSQL Database:**
