@@ -52,6 +52,7 @@ The following Docker Compose files are available in this repository:
     * Odoo
     * ERPNext
 * **Docker Client:**
+    * Portainer
     * Dokku
 * **Backend as a Service(BaaS):**
     * Pocketbase
