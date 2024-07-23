@@ -51,6 +51,8 @@ The following Docker Compose files are available in this repository:
 * **CRM/ERP:**
     * Odoo
     * ERPNext
+* **CMS:**
+    * WordPress
 * **Docker Client:**
     * Portainer
     * Dokku
