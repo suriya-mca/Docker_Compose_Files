@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  grav:
+    image: getgrav/grav:latest
+    ports:
+      - 8000:80
+    volumes:
+      - grav_data:/var/www/html
+
+volumes:
+  grav_data:

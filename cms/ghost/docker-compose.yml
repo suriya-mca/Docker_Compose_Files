@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  ghost:
+    image: ghost:latest
+    ports:
+      - 2368:2368
+    environment:
+      url: http://localhost:2368
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: exampleuser
+      database__connection__password: examplepass
+      database__connection__database: exampledb
+    volumes:
+      - ghost_data:/var/lib/ghost/content
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  ghost_data:
+  db_data:

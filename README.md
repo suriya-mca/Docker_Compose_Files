@@ -53,6 +53,8 @@ The following Docker Compose files are available in this repository:
     * ERPNext
 * **CMS:**
     * WordPress
+    * Ghost
+    * Grav
 * **Docker Client:**
     * Portainer
     * Dokku
