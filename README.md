@@ -55,6 +55,7 @@ The following Docker Compose files are available in this repository:
     * WordPress
     * Ghost
     * Grav
+    * Strapi
 * **Docker Client:**
     * Portainer
     * Dokku
