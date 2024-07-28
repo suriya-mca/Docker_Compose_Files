@@ -38,6 +38,8 @@ The following Docker Compose files are available in this repository:
     * Couchbase
     * Neo4j
     * Memcached
+* **Vector Database:**
+    * Qdrant
 * **DB Client:**
     * Dbeaver
     * Dbgate
