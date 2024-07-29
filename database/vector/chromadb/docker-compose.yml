@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  chromadb:
+    image: chromadb/chromadb:latest
+    container_name: chromadb
+    ports:
+      - "8000:8000"
+    environment:
+      CHROMADB_API_KEY: your_api_key
+      CHROMADB_LOG_LEVEL: "INFO"
+    volumes:
+      - chromadb_data:/var/lib/chromadb
+
+volumes:
+  chromadb_data:

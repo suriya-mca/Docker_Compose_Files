@@ -40,6 +40,7 @@ The following Docker Compose files are available in this repository:
     * Memcached
 * **Vector Database:**
     * Qdrant
+    * ChromaDB
 * **DB Client:**
     * Dbeaver
     * Dbgate
