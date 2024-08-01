@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    image: suriya08/sqlite3:latest
+    container_name: sqlite3
+    restart: always
+    volumes:
+      - ./data:/app/data  # Mount a directory for SQLite databases
+    ports:
+      - "8191:8191"
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/db  # Mount the same directory as above to access SQLite files
+
+volumes:
+  data:
