@@ -43,6 +43,7 @@ The following Docker Compose files are available in this repository:
     * Qdrant
     * ChromaDB
     * PostgresVector
+    * Weaviate
 * **DB Client:**
     * Dbeaver
     * Dbgate
