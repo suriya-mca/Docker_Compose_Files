@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  clickhouse-server:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse-server
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse  # Persistent storage for ClickHouse data
+    ports:
+      - "8123:8123"  # HTTP interface
+      - "9000:9000"  # Native TCP interface
+      - "9009:9009"  # gRPC
+    environment:
+      CLICKHOUSE_DB: default
+      CLICKHOUSE_USER: default
+      CLICKHOUSE_PASSWORD: "strong password"
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+
+  clickhouse-client:
+    image: clickhouse/clickhouse-client:latest
+    container_name: clickhouse-client
+    entrypoint: /bin/sh -c 'exec sleep infinity'  # Keep the container running for interactive use
+    depends_on:
+      - clickhouse-server
+    links:
+      - clickhouse-server
+
+volumes:
+  clickhouse_data:

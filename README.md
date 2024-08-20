@@ -44,6 +44,8 @@ The following Docker Compose files are available in this repository:
     * ChromaDB
     * PostgresVector
     * Weaviate
+* **Analytics Database (OLAP):**
+    * ClickHouse
 * **DB Client:**
     * Dbeaver
     * Dbgate
