@@ -46,6 +46,7 @@ The following Docker Compose files are available in this repository:
     * Weaviate
 * **Analytics Database (OLAP):**
     * ClickHouse
+    * Apache Pinot
 * **DB Client:**
     * Dbeaver
     * Dbgate
