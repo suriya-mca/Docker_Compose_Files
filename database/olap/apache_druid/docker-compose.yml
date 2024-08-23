@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  zookeeper:
+    image: zookeeper:3.6
+    container_name: druid-zookeeper
+    ports:
+      - "2181:2181"  # Zookeeper client port
+
+  postgres:
+    image: postgres:13
+    container_name: druid-postgres
+    environment:
+      POSTGRES_DB: druid
+      POSTGRES_USER: druid
+      POSTGRES_PASSWORD: druid
+    ports:
+      - "5432:5432"  # PostgreSQL port
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  druid:
+    image: apache/druid:25.0.0
+    container_name: druid
+    ports:
+      - "8081:8081"  # Druid Coordinator/Overlord port
+      - "8888:8888"  # Druid Router (Broker) port
+      - "8090:8090"  # Druid Historical port
+      - "8091:8091"  # Druid MiddleManager port
+      - "3000:3000"  # Druid Console port
+    environment:
+      ZK_SERVERS: druid-zookeeper:2181
+      DRUID_METADATA_USER: druid
+      DRUID_METADATA_PASSWORD: druid
+      DRUID_METADATA_DB: druid
+      DRUID_STORAGE_TYPE: local
+      DRUID_SEGMENT_DIRECTORY: var/druid/segments
+      DRUID_DEEP_STORAGE: var/druid/deepstorage
+      DRUID_PROCESSING_TMP_DIR: var/druid/tmp
+    volumes:
+      - druid_data:/opt/druid/var
+    depends_on:
+      - zookeeper
+      - postgres
+
+volumes:
+  postgres_data:
+  druid_data:

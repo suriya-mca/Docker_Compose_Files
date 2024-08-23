@@ -48,6 +48,7 @@ The following Docker Compose files are available in this repository:
     * ClickHouse
     * Apache Pinot
     * Apache Kylin
+    * Apache Druid
 * **DB Client:**
     * Dbeaver
     * Dbgate
