@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  zookeeper:
+    image: zookeeper:3.6
+    container_name: zookeeper
+    ports:
+      - "2181:2181"  # Zookeeper port
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper:2888:3888
+      ZOO_4LW_COMMANDS_WHITELIST: "ruok"
+  
+  hadoop:
+    image: sequenceiq/hadoop-docker:2.7.1
+    container_name: hadoop
+    ports:
+      - "50070:50070"  # HDFS web interface
+      - "9000:9000"    # HDFS Namenode port
+    environment:
+      CLUSTER_NAME: hadoop
+    command: ["sh", "-c", "service ssh start; bash"]
+  
+  kylin:
+    image: apachekylin/apache-kylin-standalone:4.0.0
+    container_name: kylin
+    ports:
+      - "7070:7070"  # Kylin web interface
+    environment:
+      HADOOP_CONF_DIR: /etc/hadoop
+      HIVE_HOME: /usr/local/hive
+      HBASE_HOME: /usr/local/hbase
+      ZOOKEEPER_HOME: /usr/local/zookeeper
+      KYLIN_HOME: /usr/local/kylin
+      KYLIN_CONF_DIR: /usr/local/kylin/conf
+    volumes:
+      - kylin_store:/usr/local/kylin/store
+    depends_on:
+      - zookeeper
+      - hadoop
+
+volumes:
+  kylin_store:

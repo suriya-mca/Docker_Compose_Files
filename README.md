@@ -47,6 +47,7 @@ The following Docker Compose files are available in this repository:
 * **Analytics Database (OLAP):**
     * ClickHouse
     * Apache Pinot
+    * Apache Kylin
 * **DB Client:**
     * Dbeaver
     * Dbgate
