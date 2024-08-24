@@ -18,6 +18,8 @@ docker-compose up
 
 This command will start the containers defined in the Docker Compose file.
 
+⚠️ Note: These Docker Compose files are intended for development purposes and experimentation. Use them at your own risk
+
 ## Available Docker Compose Files
 
 The following Docker Compose files are available in this repository:
