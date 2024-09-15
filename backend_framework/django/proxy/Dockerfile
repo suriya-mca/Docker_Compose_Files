@@ -1,4 +1,4 @@
-FROM nginx:
+FROM nginx
 
 COPY ./start.sh /start.sh
 
