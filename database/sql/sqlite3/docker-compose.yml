@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db:
-    image: suriya08/sqlite3:latest
+    image: suriya08/sqlite3:1.0.1
     container_name: sqlite3
     restart: always
     volumes:
