@@ -1,5 +1,6 @@
 # Docker Compose Files for Open-Source Software's
-[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)  ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/suriya-mca/Docker_Compose_Files)  ![GitHub Repo stars](https://img.shields.io/github/stars/suriya-mca/Docker_Compose_Files?style=flat)  ![GitHub forks](https://img.shields.io/github/forks/suriya-mca/Docker_Compose_Files?style=flat)
+![GitHub License](https://img.shields.io/github/license/suriya-mca/Docker_Compose_Files?style=flat&color=green)  ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/suriya-mca/Docker_Compose_Files)  ![GitHub Repo stars](https://img.shields.io/github/stars/suriya-mca/Docker_Compose_Files?style=flat&color=pink)  ![GitHub forks](https://img.shields.io/github/forks/suriya-mca/Docker_Compose_Files?style=flat&color=orange)
+
 
 This repository contains a collection of Docker Compose files for various open-source and popular software and frameworks
 . Each Docker Compose file is designed to set up a specific software or framework in a containerized environment.
