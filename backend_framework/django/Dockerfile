@@ -8,10 +8,11 @@ ENV PIP_NO_CACHE_DIR 1
 WORKDIR /app
 
 COPY . /app
-COPY ./script/gunicorn/gunicorn.conf.py /etc/gunicorn/gunicorn.conf.py
 
-RUN chmod +x /app/script/start.sh && \
-    pip install --upgrade pip && \
-    pip install --no-cache-dir --upgrade -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir --upgrade -r requirements.txt && \
+    python manage.py makemigrations && \
+    python manage.py migrate && \
+    python manage.py collectstatic --noinput
 
-ENTRYPOINT ["sh", "-c", "./script/start.sh"]
+CMD ["python", "manage.py", "runserver"]
