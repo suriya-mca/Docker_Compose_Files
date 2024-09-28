@@ -11,7 +11,8 @@ ENV PIP_NO_CACHE_DIR 1
 WORKDIR /app
 
 # Copy the requirements file and other files to the container
-COPY ./app /app
+# Change {pwd} to your app root folder name
+COPY ./{pwd} /app
 COPY ./requirements.txt /app
 
 # Install dependencies
