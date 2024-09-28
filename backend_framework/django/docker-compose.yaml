@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   db:
     image: postgres:latest
     container_name: postgres
@@ -14,24 +15,13 @@ services:
   app:
     build: .
     env_file: .env
-    container_name: cms
+    container_name: [name]
     ports:
-      - "8000"
+      - "8000:8000"
     volumes:
-      - static-data:/vol/static
+      - static-data:/static
     depends_on:
       - db
-
-  proxy:
-    build:
-    context: ./proxy
-    env_file: .env
-    volumes:
-      - static-data:/vol/static
-    ports:
-      - "80:80"
-    depends_on:
-      - app
 
 volumes:
     static-data:
