@@ -33,6 +33,7 @@ The following Docker Compose files are available in this repository:
     * MSSQL
     * Mariadb
     * TimescaleDB
+    * EdgeDB
 * **NoSQL Database:**
     * Redis
     * MongoDB
